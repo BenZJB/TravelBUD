@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelBUD - Design Your Travel Plan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        .header p {
+            color: #666;
+        }
+
+        .question-section {
+            background: #ffffff;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .question-number {
+            color: #4CAF50;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .question-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .option-button {
+            padding: 0.8rem;
+            background-color: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .option-button:hover {
+            background-color: #4CAF50;
+            color: white;
+            border-color: #4CAF50;
+        }
+
+        .option-button.selected {
+            background-color: #4CAF50;
+            color: white;
+            border-color: #4CAF50;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .slider-container {
+            margin: 1rem 0;
+        }
+
+        .slider {
+            width: 100%;
+            height: 8px;
+            -webkit-appearance: none;
+            background: #e9ecef;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #4CAF50;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .generate-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 2rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .generate-button:hover {
+            background-color: #45a049;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+                margin: 1rem;
+            }
+
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Design Your Personalized Travel Plan</h1>
+            <p>Let's find out what makes your perfect journey. Answer these questions to help us create your tailored itinerary.</p>
+        </div>
+
+        <div class="question-section">
+            <div class="question-number">1. Purpose of Travel</div>
+            <div class="question-title">What's the main reason for your upcoming trip?</div>
+            <div class="options-grid">
+                <div class="option-button">Relaxation</div>
+                <div class="option-button">Adventure</div>
+                <div class="option-button">Cultural Exploration</div>
+                <div class="option-button">Food Tasting</div>
+            </div>
+            <div class="question-title">Do you have a destination in mind?</div>
+            <input type="text" class="input-field" placeholder="Enter destination or 'open to suggestions'">
+        </div>
+
+        <div class="question-section">
+            <div class="question-number">2. Duration and Timing</div>
+            <div class="question-title">Trip Duration</div>
+            <input type="number" class="input-field" placeholder="Number of days">
+            
+            <div class="question-title">Preferred Travel Season</div>
+            <div class="options-grid">
+                <div class="option-button">Spring</div>
+                <div class="option-button">Summer</div>
+                <div class="option-button">Fall</div>
+                <div class="option-button">Winter</div>
+                <div class="option-button">Flexible</div>
+            </div>
+        </div>
+
+        <div class="question-section">
+            <div class="question-number">3. Budget Preferences</div>
+            <div class="question-title">Overall Budget Range</div>
+            <div class="options-grid">
+                <div class="option-button">Under $500</div>
+                <div class="option-button">$500-$1000</div>
+                <div class="option-button">$1000-$2000</div>
+                <div class="option-button">$2000+</div>
+            </div>
+            
+            <div class="question-title">Importance of Cost-effectiveness (1-5)</div>
+            <div class="slider-container">
+                <input type="range" min="1" max="5" value="3" class="slider">
+            </div>
+        </div>
+
+        <div class="question-section">
+            <div class="question-number">4. Activity Preferences</div>
+            <div class="question-title">Select your preferred activities:</div>
+            <div class="checkbox-group">
+                <label class="checkbox-label">
+                    <input type="checkbox"> Adventure Sports
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox"> Nature Exploration
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox"> Cultural Experiences
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox"> Shopping & Nightlife
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox"> Wellness & Relaxation
+                </label>
+            </div>
+            
+            <div class="question-title">Must-include activities:</div>
+            <textarea placeholder="Enter specific activities you'd like to include..."></textarea>
+        </div>
+
+        <div class="question-section">
+            <div class="question-number">5. Pace and Schedule</div>
+            <div class="question-title">Schedule Preference</div>
+            <div class="options-grid">
+                <div class="option-button">Structured Itinerary</div>
+                <div class="option-button">Flexible Schedule</div>
+                <div class="option-button">Mix of Both</div>
+            </div>
+            
+            <div class="question-title">Daily Activity Count</div>
+            <div class="options-grid">
+                <div class="option-button">1-2 Activities</div>
+                <div class="option-button">3-5 Activities</div>
+                <div class="option-button">As Many as Possible</div>
+            </div>
+        </div>
+
+        <div class="question-section">
+            <div class="question-number">6. Transportation Preferences</div>
+            <div class="options-grid">
+                <div class="option-button">Public Transportation</div>
+                <div class="option-button">Private Transport</div>
+                <div class="option-button">Walking-Friendly</div>
+                <div class="option-button">Minimal Walking</div>
+            </div>
+        </div>
+
+        <div class="question-section">
+            <div class="question-number">7. Climate Preferences</div>
+            <div class="options-grid">
+                <div class="option-button">Tropical</div>
+                <div class="option-button">Mediterranean</div>
+                <div class="option-button">Mountain</div>
+                <div class="option-button">Urban</div>
+            </div>
+        </div>
+
+        <div class="question-section">
+            <div class="question-number">8. Travel Goals</div>
+            <div class="question-title">What would make this trip unforgettable?</div>
+            <textarea placeholder="Share your dream experiences..."></textarea>
+        </div>
+
+        <div class="question-section">
+            <div class="question-number">9. Special Considerations</div>
+            <div class="question-title">Any special requirements or challenges?</div>
+            <textarea placeholder="Tell us about any accessibility needs, medical conditions, or travel challenges..."></textarea>
+        </div>
+
+        <button class="generate-button">Generate Travel Itinerary</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelBUD - Find Your Travel Buddy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.2rem;
+        }
+
+        .buddy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .buddy-card {
+            background: #ffffff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .buddy-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .buddy-header {
+            position: relative;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+        }
+
+        .profile-pic {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid white;
+            margin-bottom: 1rem;
+            object-fit: cover;
+        }
+
+        .buddy-name {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .buddy-tagline {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: #e0e0e0;
+        }
+
+        .buddy-content {
+            padding: 1.5rem;
+        }
+
+        .travel-details {
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+
+        .detail-icon {
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .itinerary-preview {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .itinerary-title {
+            color: #4CAF50;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .match-percentage {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            color: #4CAF50;
+            padding: 0.5rem;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .connect-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 8px;
+            width: 100%;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .connect-button:hover {
+            background-color: #45a049;
+        }
+
+        .interests-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .interest-tag {
+            background: #e9ecef;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .buddy-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Find Your Perfect Travel Buddy</h1>
+            <p>Connect with fellow travelers who share your wanderlust and travel style</p>
+        </div>
+
+        <div class="buddy-grid">
+            <!-- Travel Buddy 1 -->
+            <div class="buddy-card">
+                <div class="buddy-header">
+                    <div class="match-percentage">95% Match</div>
+                    <img src="https://via.placeholder.com/80" alt="Profile" class="profile-pic">
+                    <h2 class="buddy-name">Sarah Chen</h2>
+                    <p class="buddy-tagline">Adventure seeker with a passion for local cuisine!</p>
+                </div>
+                <div class="buddy-content">
+                    <div class="travel-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">🌍</span>
+                            <span>Destination: Japan (Tokyo, Kyoto, Osaka)</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">📅</span>
+                            <span>Duration: 2 weeks (March 2025)</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">💰</span>
+                            <span>Budget: $3000-4000</span>
+                        </div>
+                    </div>
+                    <div class="interests-tags">
+                        <span class="interest-tag">Food Tourism</span>
+                        <span class="interest-tag">Photography</span>
+                        <span class="interest-tag">Cultural Sites</span>
+                    </div>
+                    <div class="itinerary-preview">
+                        <div class="itinerary-title">Trip Highlights</div>
+                        <p>Cherry blossom viewing, temple hopping, food markets, and traditional tea ceremonies</p>
+                    </div>
+                    <button class="connect-button">Connect with Sarah</button>
+                </div>
+            </div>
+
+            <!-- Travel Buddy 2 -->
+            <div class="buddy-card">
+                <div class="buddy-header">
+                    <div class="match-percentage">88% Match</div>
+                    <img src="https://via.placeholder.com/80" alt="Profile" class="profile-pic">
+                    <h2 class="buddy-name">Marco Silva</h2>
+                    <p class="buddy-tagline">History buff with a knack for finding hidden gems!</p>
+                </div>
+                <div class="buddy-content">
+                    <div class="travel-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">🌍</span>
+                            <span>Destination: Italy (Rome, Florence, Venice)</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">📅</span>
+                            <span>Duration: 10 days (April 2025)</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">💰</span>
+                            <span>Budget: $2500-3000</span>
+                        </div>
+                    </div>
+                    <div class="interests-tags">
+                        <span class="interest-tag">History</span>
+                        <span class="interest-tag">Architecture</span>
+                        <span class="interest-tag">Local Wine</span>
+                    </div>
+                    <div class="itinerary-preview">
+                        <div class="itinerary-title">Trip Highlights</div>
+                        <p>Ancient ruins, Renaissance art, canal tours, and authentic Italian cooking classes</p>
+                    </div>
+                    <button class="connect-button">Connect with Marco</button>
+                </div>
+            </div>
+
+            <!-- Travel Buddy 3 -->
+            <div class="buddy-card">
+                <div class="buddy-header">
+                    <div class="match-percentage">82% Match</div>
+                    <img src="https://via.placeholder.com/80" alt="Profile" class="profile-pic">
+                    <h2 class="buddy-name">Emma Watson</h2>
+                    <p class="buddy-tagline">Nature lover and sustainable travel enthusiast!</p>
+                </div>
+                <div class="buddy-content">
+                    <div class="travel-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">🌍</span>
+                            <span>Destination: Costa Rica</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">📅</span>
+                            <span>Duration: 12 days (May 2025)</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">💰</span>
+                            <span>Budget: $2000-2500</span>
+                        </div>
+                    </div>
+                    <div class="interests-tags">
+                        <span class="interest-tag">Eco-Tourism</span>
+                        <span class="interest-tag">Wildlife</span>
+                        <span class="interest-tag">Hiking</span>
+                    </div>
+                    <div class="itinerary-preview">
+                        <div class="itinerary-title">Trip Highlights</div>
+                        <p>Rainforest exploration, wildlife watching, sustainable lodges, and beach cleanups</p>
+                    </div>
+                    <button class="connect-button">Connect with Emma</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

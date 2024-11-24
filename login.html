@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelBUD - Your Profile</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+
+        .profile-header {
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 4px solid #4CAF50;
+        }
+
+        .profile-name {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-bio {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .travel-preferences {
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            color: #4CAF50;
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+        }
+
+        .preference-group {
+            margin-bottom: 2rem;
+        }
+
+        .preference-question {
+            margin-bottom: 1rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        select, input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .preference-options {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .preference-option {
+            background-color: #f0f0f0;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .preference-option:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .selected {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .save-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .save-button:hover {
+            background-color: #45a049;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+                margin: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-header">
+            <img src="https://via.placeholder.com/150" alt="Profile Picture" class="profile-pic">
+            <h1 class="profile-name">Your Name</h1>
+            <p class="profile-bio">Welcome to TravelBUD, your travel BUDdy for half the BUDget!</p>
+        </div>
+
+        <div class="travel-preferences">
+            <h2 class="section-title">Travel Preferences</h2>
+            
+            <div class="preference-group">
+                <h3 class="preference-question">What's your preferred travel style?</h3>
+                <div class="preference-options">
+                    <span class="preference-option">Luxury</span>
+                    <span class="preference-option selected">Adventure</span>
+                    <span class="preference-option">Budget</span>
+                    <span class="preference-option">Cultural</span>
+                </div>
+            </div>
+
+            <div class="preference-group">
+                <h3 class="preference-question">How do you like to plan your trips?</h3>
+                <select>
+                    <option>Spontaneous - minimal planning</option>
+                    <option>Balanced - some planning, some flexibility</option>
+                    <option>Structured - detailed itineraries</option>
+                </select>
+            </div>
+
+            <div class="preference-group">
+                <h3 class="preference-question">What's your ideal trip duration?</h3>
+                <select>
+                    <option>Weekend getaway (1-3 days)</option>
+                    <option>Short trip (4-7 days)</option>
+                    <option>Extended vacation (1-2 weeks)</option>
+                    <option>Long-term travel (2+ weeks)</option>
+                </select>
+            </div>
+
+            <div class="preference-group">
+                <h3 class="preference-question">What's your average daily budget when traveling?</h3>
+                <select>
+                    <option>Budget ($0-100/day)</option>
+                    <option>Moderate ($100-300/day)</option>
+                    <option>Luxury ($300+/day)</option>
+                </select>
+            </div>
+
+            <div class="preference-group">
+                <h3 class="preference-question">What activities interest you most?</h3>
+                <div class="preference-options">
+                    <span class="preference-option">Hiking</span>
+                    <span class="preference-option selected">Food & Dining</span>
+                    <span class="preference-option">Museums</span>
+                    <span class="preference-option">Shopping</span>
+                    <span class="preference-option">Nightlife</span>
+                    <span class="preference-option">Beach</span>
+                </div>
+            </div>
+
+            <div class="preference-group">
+                <h3 class="preference-question">What's your preferred accommodation type?</h3>
+                <select>
+                    <option>Hostels</option>
+                    <option>Budget hotels</option>
+                    <option>Mid-range hotels</option>
+                    <option>Luxury hotels</option>
+                    <option>Vacation rentals</option>
+                </select>
+            </div>
+
+            <div class="preference-group">
+                <h3 class="preference-question">Do you have any dietary preferences/restrictions?</h3>
+                <div class="preference-options">
+                    <span class="preference-option">Vegetarian</span>
+                    <span class="preference-option">Vegan</span>
+                    <span class="preference-option">Gluten-free</span>
+                    <span class="preference-option">No restrictions</span>
+                </div>
+            </div>
+
+            <div class="preference-group">
+                <h3 class="preference-question">Languages spoken?</h3>
+                <input type="text" placeholder="Enter languages you speak">
+            </div>
+
+            <div class="preference-group">
+                <h3 class="preference-question">Preferred destinations?</h3>
+                <div class="preference-options">
+                    <span class="preference-option">Europe</span>
+                    <span class="preference-option">Asia</span>
+                    <span class="preference-option">Americas</span>
+                    <span class="preference-option">Africa</span>
+                    <span class="preference-option">Oceania</span>
+                </div>
+            </div>
+
+            <button class="save-button">Save Preferences</button>
+        </div>
+    </div>
+</body>
+</html>
